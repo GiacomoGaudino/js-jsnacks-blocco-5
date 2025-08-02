@@ -601,3 +601,59 @@ Ogni persona ha un nome, un cognome e un’età.*
 
 * Crea quindi un nuovo array inserendo, per ogni persona, una frase con il nome e cognome e l’indicazione se può guidare, in base all’età.*
 */
+
+const persone = [
+  { nome: "Luca", cognome: "Rossi", age: 15 },
+  { nome: "Maria", cognome: "Bianchi", age: 34 },
+  { nome: "Giovanni", cognome: "Verdi", age: 45 },
+  { nome: "Anna", cognome: "Neri", age: 22 },
+  { nome: "Francesco", cognome: "Russo", age: 16 },
+  { nome: "Elisa", cognome: "Conti", age: 14 },
+  { nome: "Marco", cognome: "Ferrari", age: 39 },
+  { nome: "Sara", cognome: "Galli", age: 24 },
+  { nome: "Alessandro", cognome: "Fontana", age: 12 },
+  { nome: "Chiara", cognome: "Moretti", age: 29 }
+];
+
+function canYouDrive(person) {
+  if (person.age >= 18) {
+    return true
+  } else {
+    return false
+  }
+}
+
+const newPerson = [];
+/*
+for (let i = 0; i < persone.length; i++) {
+  const thisPerson = persone[i];
+  const { nome, cognome, age } = persone[i]
+  if (canYouDrive(thisPerson)){
+    newPerson.push(`${nome} ${cognome} può guidare`);
+  } else {
+    newPerson.push(`${nome} ${cognome} non può guidare`);
+  }
+}
+console.log(newPerson);
+*/
+
+persone.forEach(function (person) {
+  const { nome, cognome, age } = person
+  if (canYouDrive(person)) {
+    newPerson.push(`${nome} ${cognome} può guidare`);
+  } else {
+    newPerson.push(`${nome} ${cognome} non può guidare`);
+  }
+})
+console.log(newPerson);
+
+const drivePerson = persone.map(person => {
+  const { nome, cognome, age } = person;
+  if (canYouDrive(person)) {
+    return `${nome} ${cognome} può guidare`;
+  } else {
+    return `${nome} ${cognome} non può guidare`;
+  }
+})
+console.log(drivePerson);
+
