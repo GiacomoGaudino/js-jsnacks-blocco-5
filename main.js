@@ -447,5 +447,157 @@ console.log(studentFinder.classroom);
 // uso find e l'arrow function in line per trovare lo studente e poi stampo in console la sua classe
 const classFinder = students_2.find(student => student.name === "Marco Lanci" && console.log(student.classroom))
 
+/*
+Snacks Per bk rooms:
+
+### ** Snack 1 **
+
+* Crea un array composto da 10 automobili.
+Ogni oggetto automobile avrà le seguenti proprietà: marca, modello e alimentazione(benzina, diesel, gpl, elettrico, metano).
+Dividi le automobili in 3 array separati: nel primo array solo le auto a benzina, nel secondo solo le auto a diesel, nel terzo il resto delle auto.
+Infine stampa separatamente i 3 array.*
+*/
+
+const cars = [
+  { marca: "Fiat", modello: "Panda", alimentazione: "benzina" },
+  { marca: "Volkswagen", modello: "Golf", alimentazione: "diesel" },
+  { marca: "Tesla", modello: "Model 3", alimentazione: "elettrico" },
+  { marca: "Toyota", modello: "Yaris", alimentazione: "ibrido" },
+  { marca: "Renault", modello: "Clio", alimentazione: "gpl" },
+  { marca: "Audi", modello: "A3", alimentazione: "diesel" },
+  { marca: "Nissan", modello: "Leaf", alimentazione: "elettrico" },
+  { marca: "Opel", modello: "Corsa", alimentazione: "metano" },
+  { marca: "BMW", modello: "Serie 1", alimentazione: "benzina" },
+  { marca: "Hyundai", modello: "Kona", alimentazione: "elettrico" }
+];
+
+const gasolineCar = [];
+const dieselCar = [];
+const otherCar = [];
+/*
+for (let i = 0; i < cars.length; i++) {
+  const thisCar = cars[i];
+  if (thisCar.alimentazione === "benzina"){
+    gasolineCar.push(thisCar)
+  } else if (thisCar.alimentazione === "diesel"){
+    dieselCar.push(thisCar)
+  } else {
+    otherCar.push(thisCar)
+  }
+}
+console.log(gasolineCar);
+console.log(dieselCar);
+console.log(otherCar);
+*/
+
+cars.forEach(function (car) {
+  if (car.alimentazione === "benzina") {
+    gasolineCar.push(car)
+  } else if (car.alimentazione === "diesel") {
+    dieselCar.push(car)
+  } else {
+    otherCar.push(car)
+  }
+})
+console.log(gasolineCar);
+console.log(dieselCar);
+console.log(otherCar);
+
+const bsspCars = cars.filter(car => car.alimentazione === "benzina");
+console.log(bsspCars);
+const naftaCar = cars.filter(car => car.alimentazione === "diesel");
+console.log(naftaCar);
+const gplMetElCar = cars.filter(car => car.alimentazione != "benzina" && car.alimentazione != "diesel")
+console.log(gplMetElCar);
 
 
+/*
+### Snack 2
+
+  * A partire da un array di stringhe, crea un secondo array formattando le stringhe del primo array in minuscolo e con l’iniziale maiuscola.*
+*/
+const colori = [
+  "rosso",
+  "blu",
+  "verde",
+  "giallo",
+  "arancione",
+  "viola",
+  "nero",
+  "bianco",
+  "grigio",
+  "rosa"
+];
+
+const newColori = [];
+/*
+for (let i = 0; i < colori.length; i++) {
+  const thisColor = colori[i];
+  const capitalize = thisColor[0].toLocaleUpperCase() + thisColor.slice(1);
+  newColori.push(capitalize)
+  console.log(capitalize);
+}
+console.log(newColori);
+*/
+
+colori.forEach(function (color) {
+  const capitalize = color[0].toLocaleUpperCase() + color.slice(1);
+  newColori.push(capitalize)
+})
+console.log(newColori);
+
+const capitalize = colori.map(color => color[0].toLocaleUpperCase() + color.slice(1));
+console.log(capitalize);
+
+
+/*
+### Snack 3
+
+  * Crea un array di oggetti che rappresentano degli animali.
+Ogni animale ha un nome, una famiglia e una classe.
+Crea un nuovo array con la lista dei mammiferi *
+*/
+
+const animals = [
+  { nome: "Leone", famiglia: "Felidae", classe: "Mammiferi" },
+  { nome: "Aquila reale", famiglia: "Accipitridae", classe: "Uccelli" },
+  { nome: "Squalo bianco", famiglia: "Lamnidae", classe: "Pesci" },
+  { nome: "Elefante africano", famiglia: "Elephantidae", classe: "Mammiferi" },
+  { nome: "Serpente a sonagli", famiglia: "Viperidae", classe: "Rettili" },
+  { nome: "Canguro rosso", famiglia: "Macropodidae", classe: "Mammiferi" },
+  { nome: "Rana toro", famiglia: "Ranidae", classe: "Anfibi" },
+  { nome: "Pinguino imperatore", famiglia: "Spheniscidae", classe: "Uccelli" },
+  { nome: "Tartaruga marina", famiglia: "Cheloniidae", classe: "Rettili" },
+  { nome: "Falco pellegrino", famiglia: "Falconidae", classe: "Uccelli" }
+];
+
+const mammiferi = []
+/*
+for (let i = 0; i < animals.length; i++) {
+  const thisAnimal = animals[i];
+  if (thisAnimal.classe === "Mammiferi"){
+    mammiferi.push(thisAnimal)
+  }
+}
+console.log(mammiferi);
+*/
+
+animals.forEach(function (animal) {
+  if (animal.classe === "Mammiferi") {
+    mammiferi.push(animal)
+  }
+})
+console.log(mammiferi);
+
+const mammiferiAnimal = animals.filter(animal => animal.classe === "Mammiferi")
+console.log(mammiferiAnimal);
+
+
+/*
+### Snack 4
+
+  * Crea un array di oggetti che rappresentano delle persone.
+Ogni persona ha un nome, un cognome e un’età.*
+
+* Crea quindi un nuovo array inserendo, per ogni persona, una frase con il nome e cognome e l’indicazione se può guidare, in base all’età.*
+*/
